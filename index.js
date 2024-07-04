@@ -19,6 +19,7 @@ import {
   openAuthSessionPolyfillAsync,
   closeAuthSessionPolyfillAsync,
   authSessionIsNativelySupported,
+  isHarmony,
 } from './utils';
 
 /**
@@ -84,7 +85,7 @@ function close(): void {
  * @platform android
  */
 function warmup(): Promise<boolean> {
-  if (isAndroid) {
+  if (isAndroid || isHarmony) {
     return RNInAppBrowser.warmup();
   }
   return Promise.resolve(false);
@@ -106,7 +107,7 @@ function mayLaunchUrl(
   mostLikelyUrl: string,
   otherUrls: Array<string> = []
 ): void {
-  if (isAndroid) {
+  if (isAndroid || isHarmony) {
     RNInAppBrowser.mayLaunchUrl(mostLikelyUrl, otherUrls);
   }
 }
