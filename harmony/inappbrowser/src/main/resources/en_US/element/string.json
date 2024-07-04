@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from package"
+    },
+    {
+      "name": "page_done",
+      "value": "done"
+    },
+    {
+      "name": "page_close",
+      "value": "close"
+    },
+    {
+      "name": "page_cancel",
+      "value": "cancel"
+    }
+  ]
+}
