@@ -19,7 +19,10 @@ import type {
   InAppBrowserOptions,
 } from './types';
 
-export const RNInAppBrowser = NativeModules.RNInAppBrowser;
+import RNInHarmonyarmonyAppBrowser from "./src/NativeInappbrowser";
+
+//export const RNInAppBrowser =  Platform.OS === 'harmony' ? './src/NativeInappbrowser': NativeModules.RNInAppBrowser;
+export const RNInAppBrowser = RNInHarmonyarmonyAppBrowser;
 
 type EmitterSubscription = {
   remove(): void,
@@ -115,7 +118,7 @@ export async function openBrowserAsync(
     url,
     preferredBarTintColor:
       options.preferredBarTintColor &&
-      processColor(options.preferredBarTintColor),
+processColor(options.preferredBarTintColor),
     preferredControlTintColor:
       options.preferredControlTintColor &&
       processColor(options.preferredControlTintColor),
@@ -174,9 +177,12 @@ export function authSessionIsNativelySupported(): boolean {
   if (Platform.OS === 'android') {
     return false;
   }
-
+  if (Platform.OS === 'harmony') {
+    return true;
+  }
   const versionNumber = parseInt(Platform.Version, 10);
   return versionNumber >= 11;
 }
 
 export const isAndroid = Platform.OS === 'android';
+export const isHarmony = Platform.OS === 'harmony';
