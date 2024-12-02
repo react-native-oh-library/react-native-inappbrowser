@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-inappbrowser-reborn",
+        "License": "MIT License",
+        "License File": "https://github.com/react-native-oh-library/react-native-inappbrowser/blob/sig/LICENSE",
+        "Version Number": "3.7.0-0.0.3",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/react-native-oh-library/react-native-inappbrowser",
+        "Description": "InAppBrowser for React Native"
+    }
+]
